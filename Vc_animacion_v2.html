@@ -182,8 +182,7 @@
             color: var(--ink);
             line-height: 1.55;
             letter-spacing: 0.01em;
-            opacity: 0;
-            animation: fadeUp 0.9s ease 0.6s forwards;
+            min-height: 3em;
         }
 
         .pregunta em {
@@ -218,10 +217,10 @@
         .panel-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            padding: 32px;
-            max-width: 900px;
-            width: 90vw;
+            gap: 18px;
+            padding: 36px;
+            max-width: 1020px;
+            width: 92vw;
             transform: rotateX(6deg);
             transform-style: preserve-3d;
         }
@@ -230,7 +229,7 @@
             background: #fff;
             border: 1.5px solid var(--border);
             border-top: 3px solid var(--yellow);
-            padding: 20px 18px 16px;
+            padding: 26px 22px 20px;
             position: relative;
             overflow: hidden;
             opacity: 0;
@@ -251,16 +250,16 @@
         }
 
         .panel-tag {
-            font-size: 9px;
+            font-size: 10px;
             font-weight: 700;
             letter-spacing: 0.25em;
             text-transform: uppercase;
             color: var(--yellow-d);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .panel-val {
-            font-size: 28px;
+            font-size: 34px;
             font-weight: 700;
             color: var(--ink);
             letter-spacing: -0.02em;
@@ -270,7 +269,7 @@
         .panel-bar-wrap {
             height: 3px;
             background: rgba(236, 217, 37, 0.2);
-            margin: 12px 0 8px;
+            margin: 14px 0 10px;
             border-radius: 2px;
         }
 
@@ -283,7 +282,7 @@
         }
 
         .panel-sub {
-            font-size: 10px;
+            font-size: 11px;
             letter-spacing: 0.1em;
             color: var(--ink-soft);
             text-transform: uppercase;
@@ -501,68 +500,113 @@
             }
         }
 
-        /* ══ S4 — FLUJO ══ */
+        /* ══ S4 — EXPERIENCIA ══ */
         #s4 {
             background: var(--bg);
-            overflow: hidden;
+            flex-direction: column;
         }
 
-        .flow-wrap {
-            position: absolute;
-            inset: 0;
-        }
-
-        .nodo {
-            position: absolute;
-            border: 1.5px solid var(--border);
-            background: #fff;
-            padding: 10px 18px;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--ink-soft);
-            white-space: nowrap;
-            opacity: 0;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
-            animation: nodoIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-        }
-
-        .nodo.gold {
-            border-color: var(--yellow);
-            color: var(--yellow-dk);
-            background: rgba(236, 217, 37, 0.08);
-        }
-
-        @keyframes nodoIn {
-            from {
-                opacity: 0;
-                transform: scale(0.8) translateY(10px)
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0)
-            }
-        }
-
-        #flowSvg {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-        }
-
-        .s4-texts {
-            position: absolute;
-            bottom: 10%;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-            z-index: 20;
+        .exp-wrap {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            white-space: nowrap;
+            align-items: center;
+            max-width: 960px;
+            width: 90vw;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .exp-bar {
+            width: 56px;
+            height: 4px;
+            background: var(--yellow);
+            margin-bottom: 1.4rem;
+            opacity: 0;
+            animation: fadeUp 0.5s ease 0.2s forwards;
+        }
+
+        .exp-title {
+            font-size: clamp(2rem, 5vw, 3.6rem);
+            font-weight: 800;
+            font-style: italic;
+            color: var(--ink);
+            line-height: 1.15;
+            margin-bottom: 1.4rem;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.4s forwards;
+        }
+
+        .exp-sub {
+            font-size: clamp(0.82rem, 1.4vw, 1rem);
+            color: var(--ink-mid);
+            line-height: 1.75;
+            margin-bottom: 2.6rem;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.6s forwards;
+        }
+
+        .exp-sub strong {
+            color: var(--ink);
+            font-weight: 700;
+        }
+
+        .exp-cols {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            width: 100%;
+        }
+
+        .exp-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            padding: 0 8px;
+            opacity: 0;
+            animation: fadeUp 0.6s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
+        }
+
+        .exp-col:nth-child(1) {
+            animation-delay: 0.85s;
+        }
+
+        .exp-col:nth-child(2) {
+            animation-delay: 1.0s;
+        }
+
+        .exp-col:nth-child(3) {
+            animation-delay: 1.15s;
+        }
+
+        .exp-col:nth-child(4) {
+            animation-delay: 1.3s;
+        }
+
+        .exp-col:nth-child(5) {
+            animation-delay: 1.45s;
+        }
+
+        .exp-eyebrow {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--yellow-d);
+            letter-spacing: 0.04em;
+        }
+
+        .exp-val {
+            font-size: clamp(1.25rem, 2.4vw, 1.9rem);
+            font-weight: 800;
+            color: var(--ink);
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+        }
+
+        .exp-desc {
+            font-size: clamp(0.68rem, 1vw, 0.8rem);
+            color: var(--ink-soft);
+            line-height: 1.55;
+            text-align: center;
         }
 
         /* ══ S5 — SERVICIOS / UNIDAD DE INSPECCIÓN ══ */
@@ -573,12 +617,12 @@
         }
 
         .ui-label {
-            font-size: 9px;
+            font-size: 10px;
             font-weight: 700;
             letter-spacing: 0.32em;
             text-transform: uppercase;
             color: var(--yellow-d);
-            margin-bottom: 32px;
+            margin-bottom: 44px;
             opacity: 0;
             animation: fadeUp 0.6s ease 0.2s forwards;
         }
@@ -586,15 +630,15 @@
         .servicios-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2px;
-            max-width: 820px;
-            width: 90vw;
+            gap: 3px;
+            max-width: 1120px;
+            width: 92vw;
         }
 
         .srv-card {
             background: #fff;
             border: 1.5px solid var(--border);
-            padding: 28px 22px 24px;
+            padding: 44px 36px 40px;
             position: relative;
             overflow: hidden;
             opacity: 0;
@@ -629,24 +673,24 @@
         }
 
         .srv-icon {
-            width: 32px;
-            height: 32px;
-            margin-bottom: 16px;
+            width: 52px;
+            height: 52px;
+            margin-bottom: 22px;
         }
 
         .srv-name {
-            font-size: 11px;
+            font-size: 13px;
             font-weight: 700;
             letter-spacing: 0.22em;
             text-transform: uppercase;
             color: var(--yellow-dk);
-            margin-bottom: 10px;
+            margin-bottom: 14px;
         }
 
         .srv-desc {
-            font-size: 12px;
+            font-size: 15px;
             font-weight: 300;
-            line-height: 1.7;
+            line-height: 1.75;
             color: var(--ink-soft);
         }
 
@@ -661,7 +705,7 @@
         }
 
         .s5-foot {
-            margin-top: 28px;
+            margin-top: 42px;
             opacity: 0;
             animation: fadeUp 0.8s ease 1.3s forwards;
             text-align: center;
@@ -753,6 +797,54 @@
         /* ══ S7 — LOGO ══ */
         #s7 {
             background: var(--bg);
+            overflow: hidden;
+        }
+
+        .s7-rings {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .s7-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 3px solid var(--yellow);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+        }
+
+        .s7-ring:nth-child(1) {
+            width: 220px;
+            height: 220px;
+        }
+
+        .s7-ring:nth-child(2) {
+            width: 160px;
+            height: 160px;
+        }
+
+        .s7-ring:nth-child(3) {
+            width: 100px;
+            height: 100px;
+        }
+
+        @keyframes burstRing {
+            0% {
+                opacity: 0.9;
+                transform: translate(-50%, -50%) scale(0.4);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(2.8);
+            }
+        }
+
+        .s7-ring.fire {
+            animation: burstRing 0.85s cubic-bezier(0.2, 0.8, 0.4, 1) forwards;
         }
 
         .logo-container {
@@ -762,6 +854,8 @@
             gap: 28px;
             opacity: 0;
             animation: logoReveal 1.2s cubic-bezier(0.34, 1.2, 0.64, 1) 0.3s forwards;
+            position: relative;
+            z-index: 2;
         }
 
         @keyframes logoReveal {
@@ -922,17 +1016,119 @@
             background: var(--yellow-dk);
         }
 
-        #hint {
-            position: fixed;
-            bottom: 60px;
-            right: 32px;
-            font-size: 10px;
-            letter-spacing: 0.18em;
+        /* ══ S8 — CLIENTES ══ */
+        #s8 {
+            background: var(--bg);
+            overflow: hidden;
+        }
+
+        .clients-title-wrap {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 20;
+            pointer-events: none;
+        }
+
+        .clients-eyebrow {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.32em;
             text-transform: uppercase;
-            color: var(--border);
-            z-index: 9500;
+            color: var(--yellow-d);
+            margin-bottom: 10px;
             opacity: 0;
-            animation: fadeUp 1s ease 3s forwards;
+            animation: fadeUp 0.6s ease 0.3s forwards;
+        }
+
+        .clients-headline {
+            font-size: clamp(1.4rem, 3vw, 2.2rem);
+            font-weight: 300;
+            color: var(--ink);
+            letter-spacing: 0.04em;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.6s forwards;
+        }
+
+        .clients-headline strong {
+            font-weight: 700;
+            color: var(--yellow-dk);
+        }
+
+        /* Burst container */
+        #clientsBurst {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .clogo {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1.5px solid var(--border);
+            background: #fff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            box-shadow: 0 3px 16px rgba(0, 0, 0, 0.08);
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0);
+            transition: box-shadow 0.3s ease;
+        }
+
+        /* Featured logos — full opacity, gold border accent */
+        .clogo.featured {
+            border-color: rgba(236, 217, 37, 0.6);
+            box-shadow: 0 4px 24px rgba(236, 217, 37, 0.2), 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .clogo img {
+            width: 90px;
+            height: 44px;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* non-featured: dim only, no blur */
+        .clogo:not(.featured) {
+            opacity: 0;
+        }
+
+        @keyframes logoExplode {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0);
+            }
+
+            60% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.08);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        @keyframes logoExplodeDim {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0);
+            }
+
+            60% {
+                opacity: 0.75;
+                transform: translate(-50%, -50%) scale(1.06);
+            }
+
+            100% {
+                opacity: 0.45;
+                transform: translate(-50%, -50%) scale(1);
+            }
         }
 
         /* ── ORBIT (S5 removida, orbit se mueve a accesorio de logo) ── */
@@ -980,6 +1176,7 @@
     <div id="flash"></div>
     <div id="gridbg"></div>
     <canvas id="particles"></canvas>
+    <canvas id="confettiS7" style="position:fixed;inset:0;pointer-events:none;z-index:50;"></canvas>
 
     <div id="stage">
 
@@ -987,10 +1184,7 @@
         <div class="scene active" id="s1">
             <div class="pregunta-wrap">
                 <div class="pregunta-deco"></div>
-                <p class="pregunta">
-                    ¿Qué pasa cuando tu empresa necesita<br>
-                    cumplir con la norma y no sabe <em>por dónde empezar</em>?<span class="cursor-blink"></span>
-                </p>
+                <p class="pregunta" id="preguntaEl"></p>
             </div>
         </div>
 
@@ -1010,8 +1204,8 @@
                 <div class="alliance-logos">
                     <!-- V&C -->
                     <div class="ally-block vc">
-                        <div class="ally-name vc-name">V&amp;C</div>
-                        <div class="ally-tag">Unidad de Inspección</div>
+                        <img src="static/vyc.png" alt="V&amp;C" style="height:90px;width:auto;object-fit:contain;">
+                        <div class="ally-tag">Expertos en NOM´s</div>
                     </div>
 
                     <!-- Puente central -->
@@ -1051,15 +1245,42 @@
             </div>
         </div>
 
-        <!-- S4 — FLUJO -->
+        <!-- S4 — EXPERIENCIA -->
         <div class="scene" id="s4">
-            <div class="flow-wrap" id="flowWrap">
-                <svg id="flowSvg" width="100%" height="100%"></svg>
-            </div>
-            <div class="s4-texts">
-                <p class="hl d1">Procesos más claros.</p>
-                <p class="hl sm d2">Evaluaciones más eficientes.</p>
-                <p class="hl sm d3" style="color:var(--border)">Mayor control operativo.</p>
+            <div class="exp-wrap">
+                <div class="exp-bar"></div>
+                <h2 class="exp-title"><em>21 años de experiencia</em></h2>
+                <p class="exp-sub">
+                    Somos un socio de negocios confiable y comprometido: <strong>PROFESIONAL</strong>.<br>
+                    Nos enfocamos en entregar resultados siendo <strong>Flexibles e Innovadores</strong>.
+                </p>
+                <div class="exp-cols">
+                    <div class="exp-col">
+                        <span class="exp-eyebrow">Alta</span>
+                        <span class="exp-val">Innovación</span>
+                        <span class="exp-desc">como un Valor Agregado.</span>
+                    </div>
+                    <div class="exp-col">
+                        <span class="exp-eyebrow">Rompiendo</span>
+                        <span class="exp-val">Paradigmas</span>
+                        <span class="exp-desc">como altos tiempos de entrega y procesos obsoletos.</span>
+                    </div>
+                    <div class="exp-col">
+                        <span class="exp-eyebrow">Procesos</span>
+                        <span class="exp-val">Confiables</span>
+                        <span class="exp-desc">y medibles basados en ISO 17020.</span>
+                    </div>
+                    <div class="exp-col">
+                        <span class="exp-eyebrow">La mayor</span>
+                        <span class="exp-val">Adaptabilidad</span>
+                        <span class="exp-desc">para el diseño de soluciones a la medida.</span>
+                    </div>
+                    <div class="exp-col">
+                        <span class="exp-eyebrow">Prestigio</span>
+                        <span class="exp-val">+ 500k</span>
+                        <span class="exp-desc">evaluaciones ejecutadas para organizaciones líderes.</span>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1110,7 +1331,7 @@
             </div>
 
             <div class="s5-foot">
-                <p class="hl sm" style="white-space:normal;text-align:center;max-width:600px;animation-delay:1.5s">
+                <p class="hl sm" style="white-space:normal;text-align:center;max-width:780px;animation-delay:1.5s">
                     Damos soluciones en <strong style="color:var(--ink);font-weight:600">materia regulatoria</strong>
                     con experiencia real en campo.
                 </p>
@@ -1123,28 +1344,29 @@
             </div>
             <div class="mega-sub">evaluaciones al año</div>
             <div class="v-sep"></div>
-            <div class="mega-num d2">+10 años<div class="acc"></div>
+            <div class="mega-num d2">+20 años<div class="acc"></div>
             </div>
             <div class="mega-sub d2">experiencia en regulación</div>
         </div>
 
+        <!-- S8 — CLIENTES -->
+        <div class="scene" id="s8">
+            <div class="clients-title-wrap">
+                <p class="clients-eyebrow">Nos eligieron</p>
+                <p class="clients-headline">Empresas que nos dieron<br><strong>su confianza</strong></p>
+            </div>
+            <div id="clientsBurst"></div>
+        </div>
+
         <!-- S7 — LOGO FINAL -->
         <div class="scene" id="s7">
+            <div class="s7-rings">
+                <div class="s7-ring" id="s7r1"></div>
+                <div class="s7-ring" id="s7r2"></div>
+                <div class="s7-ring" id="s7r3"></div>
+            </div>
             <div class="logo-container">
-                <div class="logo-mark">
-                    <svg width="130" height="130" viewBox="0 0 130 130" fill="none">
-                        <circle cx="65" cy="65" r="62" stroke="var(--border)" stroke-width="1.5" />
-                        <circle cx="65" cy="65" r="62" stroke="var(--yellow)" stroke-width="3" stroke-dasharray="80 310"
-                            stroke-dashoffset="-40" stroke-linecap="round" />
-                        <polygon points="65,20 104,42 104,88 65,110 26,88 26,42" fill="rgba(236,217,37,0.10)"
-                            stroke="var(--yellow)" stroke-width="2" />
-                        <polyline points="38,46 65,78 92,46" stroke="var(--ink)" stroke-width="4" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                        <line x1="50" y1="66" x2="80" y2="66" stroke="var(--yellow)" stroke-width="3"
-                            stroke-linecap="round" />
-                    </svg>
-                </div>
-                <div class="logo-wordmark">V<span class="amp">&amp;</span>C</div>
+                <img src="static/vyc.png" alt="V&amp;C" style="max-height:180px;width:auto;object-fit:contain;">
                 <div class="logo-rule"></div>
                 <div class="logo-slogan">Unidad de Inspección · Expertos en <strong>NOM's</strong></div>
             </div>
@@ -1160,9 +1382,9 @@
         <div class="dot"></div>
         <div class="dot"></div>
         <div class="dot"></div>
+        <div class="dot"></div>
     </div>
-    <button id="replay">↺ &nbsp; Reproducir de nuevo</button>
-    <p id="hint">← → navegar</p>
+
 
     <script>
         /* ── PARTICLES ── */
@@ -1187,6 +1409,40 @@
             requestAnimationFrame(tick);
         })();
 
+        /* ── TYPEWRITER S1 ── */
+        const S1_HTML = '¿Qué pasa cuando tu empresa necesita<br>cumplir con la norma y no sabe <em>por dónde empezar</em>?<span class="cursor-blink"></span>';
+        let s1Timer = null;
+        function typeS1() {
+            const el = document.getElementById('preguntaEl');
+            if (!el) return;
+            clearTimeout(s1Timer);
+            el.innerHTML = '';
+            // Tokenise: chars and HTML tags
+            const tokens = [];
+            let i = 0;
+            while (i < S1_HTML.length) {
+                if (S1_HTML[i] === '<') {
+                    const end = S1_HTML.indexOf('>', i);
+                    tokens.push({ tag: true, val: S1_HTML.slice(i, end + 1) });
+                    i = end + 1;
+                } else {
+                    tokens.push({ tag: false, val: S1_HTML[i] });
+                    i++;
+                }
+            }
+            let idx = 0;
+            function tick() {
+                if (idx >= tokens.length) return;
+                // Flush any leading tags instantly (br, em open/close, etc.)
+                while (idx < tokens.length && tokens[idx].tag) idx++;
+                if (idx >= tokens.length) { el.innerHTML = S1_HTML; return; }
+                idx++;
+                el.innerHTML = tokens.slice(0, idx).map(t => t.val).join('') + '<span class="cursor-blink"></span>';
+                s1Timer = setTimeout(tick, 40);
+            }
+            s1Timer = setTimeout(tick, 850);
+        }
+
         /* ── PANELS ── */
         const panelData = [
             { tag: 'Precisión', val: '98.4%', fill: 98, sub: 'evaluaciones validadas' },
@@ -1194,7 +1450,7 @@
             { tag: 'Clientes', val: '100+', fill: 82, sub: 'activos al mes' },
             { tag: 'NOMs', val: 'Total', fill: 100, sub: 'cobertura normativa' },
             { tag: 'Uptime', val: '99.9%', fill: 99, sub: 'disponibilidad sistema' },
-            { tag: 'Experiencia', val: '+10 años', fill: 75, sub: 'en regulación' },
+            { tag: 'Experiencia', val: '+20 años', fill: 75, sub: 'en regulación' },
         ];
         function buildPanels() {
             const g = document.getElementById('panelGrid'); g.innerHTML = '';
@@ -1213,59 +1469,132 @@
             }));
         }
 
-        /* ── FLOW ── */
-        const nodeList = [
-            { x: '8%', y: '16%', label: 'VALIDACIÓN NOM', gold: true },
-            { x: '52%', y: '7%', label: 'DATOS ENTRADA', gold: false },
-            { x: '72%', y: '23%', label: 'EVALUACIÓN', gold: true },
-            { x: '3%', y: '48%', label: 'SINCRONIZACIÓN', gold: false },
-            { x: '34%', y: '34%', label: 'PROCESAMIENTO', gold: true },
-            { x: '68%', y: '50%', label: 'INDICADORES', gold: true },
-            { x: '16%', y: '66%', label: 'CONTROL', gold: false },
-            { x: '51%', y: '68%', label: 'REPORTE FINAL', gold: true },
-            { x: '80%', y: '74%', label: 'CIERRE CICLO', gold: false },
-        ];
-        const edges = [[0, 4], [1, 2], [2, 4], [3, 4], [4, 5], [4, 6], [5, 7], [6, 7], [7, 8]];
+        /* ── FLOW (S4 — re-trigger experience animations) ── */
         function buildFlow() {
-            const wrap = document.getElementById('flowWrap');
-            wrap.querySelectorAll('.nodo').forEach(n => n.remove());
-            const svg = document.getElementById('flowSvg'); svg.innerHTML = '';
-            nodeList.forEach((n, i) => {
-                const el = document.createElement('div');
-                el.className = 'nodo' + (n.gold ? ' gold' : '');
-                el.style.left = n.x; el.style.top = n.y;
-                el.style.animationDelay = `${i * 0.15}s`;
-                el.textContent = n.label; wrap.appendChild(el);
+            document.querySelectorAll('#s4 .exp-bar, #s4 .exp-title, #s4 .exp-sub, #s4 .exp-col').forEach(el => {
+                el.style.animation = 'none';
+                void el.offsetWidth;
+                el.style.animation = '';
             });
-            setTimeout(() => {
-                const cw = wrap.clientWidth, ch = wrap.clientHeight;
-                edges.forEach(([a, b], idx) => {
-                    const na = nodeList[a], nb = nodeList[b];
-                    const x1 = parseFloat(na.x) / 100 * cw + 65, y1 = parseFloat(na.y) / 100 * ch + 20;
-                    const x2 = parseFloat(nb.x) / 100 * cw + 65, y2 = parseFloat(nb.y) / 100 * ch + 20;
-                    const ln = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-                    ln.setAttribute('x1', x1); ln.setAttribute('y1', y1);
-                    ln.setAttribute('x2', x2); ln.setAttribute('y2', y2);
-                    ln.setAttribute('stroke', 'rgba(236,217,37,0.6)');
-                    ln.setAttribute('stroke-width', '1.5');
-                    ln.setAttribute('stroke-dasharray', '5 8');
-                    ln.style.opacity = 0; ln.style.transition = `opacity 0.5s ease ${idx * 0.13}s`;
-                    svg.appendChild(ln);
-                    const pid = 'lp' + idx;
-                    const lp = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-                    lp.setAttribute('id', pid); lp.setAttribute('d', `M${x1} ${y1}L${x2} ${y2}`);
-                    lp.setAttribute('fill', 'none'); svg.appendChild(lp);
-                    const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-                    dot.setAttribute('r', '3.5'); dot.setAttribute('fill', '#ECD925');
-                    const am = document.createElementNS('http://www.w3.org/2000/svg', 'animateMotion');
-                    am.setAttribute('dur', `${1.6 + idx * 0.28}s`);
-                    am.setAttribute('repeatCount', 'indefinite');
-                    am.setAttribute('begin', `${idx * 0.45}s`);
-                    am.setAttribute('href', `#${pid}`);
-                    dot.appendChild(am); svg.appendChild(dot);
-                    requestAnimationFrame(() => requestAnimationFrame(() => { ln.style.opacity = 1; }));
+        }
+
+        /* ── CLIENTS BURST ── */
+        // 18 logos: 10 featured (full opacity, gold border), 8 dimmed (3 blur levels)
+        // Place your logo files in ./static/ — filenames listed below
+        const clientLogos = [
+            // Featured (10) — bright, gold-bordered
+            { file: 'logo_01.png', featured: true },
+            { file: 'logo_02.png', featured: true },
+            { file: 'logo_03.png', featured: true },
+            { file: 'logo_04.png', featured: true },
+            { file: 'logo_05.png', featured: true },
+            { file: 'logo_06.png', featured: true },
+            { file: 'logo_07.png', featured: true },
+            { file: 'logo_08.png', featured: true },
+            { file: 'logo_09.png', featured: true },
+            { file: 'logo_10.png', featured: true },
+            // Non-featured (8) — various blur levels
+            { file: 'logo_11.png', featured: false, blur: 1 },
+            { file: 'logo_12.png', featured: false, blur: 2 },
+            { file: 'logo_13.png', featured: false, blur: 1 },
+            { file: 'logo_14.jpg', featured: false, blur: 3 },
+            { file: 'logo_15.png', featured: false, blur: 2 },
+            { file: 'logo_16.png', featured: false, blur: 3 },
+            { file: 'logo_17.jpg', featured: false, blur: 1 },
+            { file: 'logo_18.png', featured: false, blur: 2 },
+        ];
+
+        // Pre-computed burst positions (polar → cartesian) spread around center
+        // Avoid the center zone where the title sits (radius < 22% of min dimension)
+        const burstAngles = [
+            0, 20, 40, 60, 80, 100, 120, 140, 160, 180,
+            200, 220, 240, 260, 280, 300, 320, 340
+        ];
+        // Two rings: inner (featured) and outer (non-featured)
+        const ringRadii = [
+            0.30, 0.34, 0.30, 0.34, 0.30, 0.34, 0.30, 0.34, 0.30, 0.34, // featured
+            0.44, 0.46, 0.44, 0.46, 0.44, 0.46, 0.44, 0.46               // non-featured
+        ];
+
+        function buildClients() {
+            const burst = document.getElementById('clientsBurst');
+            burst.innerHTML = '';
+            const W = burst.clientWidth || window.innerWidth;
+            const H = burst.clientHeight || window.innerHeight;
+            const cx = W / 2, cy = H / 2;
+
+            // Ellipse radii — wider than tall to follow screen shape
+            const innerRx = W * 0.27, innerRy = H * 0.30;
+            const outerRx = W * 0.39, outerRy = H * 0.42;
+
+            // Inner ring: 10 featured, evenly at 36° steps
+            const innerAngles = Array.from({ length: 10 }, (_, i) => (i * 36 - 90) * Math.PI / 180);
+            // Outer ring: 8 non-featured, offset by 22° so they sit between inner logos
+            const outerAngles = Array.from({ length: 8 }, (_, i) => (i * 45 + 22 - 90) * Math.PI / 180);
+
+            clientLogos.forEach((logo, i) => {
+                let x, y;
+                if (i < 10) {
+                    x = cx + Math.cos(innerAngles[i]) * innerRx;
+                    y = cy + Math.sin(innerAngles[i]) * innerRy;
+                } else {
+                    const j = i - 10;
+                    x = cx + Math.cos(outerAngles[j]) * outerRx;
+                    y = cy + Math.sin(outerAngles[j]) * outerRy;
+                }
+
+                const el = document.createElement('div');
+                el.className = 'clogo' + (logo.featured ? ' featured' : '');
+                el.style.left = x + 'px';
+                el.style.top = y + 'px';
+
+                const img = document.createElement('img');
+                img.src = `static/${logo.file}`;
+                img.alt = logo.file.replace(/\.[^.]+$/, '');
+                el.appendChild(img);
+                burst.appendChild(el);
+
+                const delay = 0.4 + i * 0.07;
+                const animName = logo.featured ? 'logoExplode' : 'logoExplodeDim';
+                el.style.animation = `${animName} 0.65s cubic-bezier(0.34,1.4,0.64,1) ${delay}s forwards`;
+            });
+        }
+
+        /* ── S7 CONFETTI ── */
+        function launchS7Confetti() {
+            const canvas = document.getElementById('confettiS7');
+            const ctx = canvas.getContext('2d');
+            canvas.width = innerWidth; canvas.height = innerHeight;
+            const colors = ['#ECD925', '#f5e56b', '#282828', '#ffffff', '#B8AA00', '#fffde6'];
+            const pieces = Array.from({ length: 110 }, () => ({
+                x: Math.random() * canvas.width,
+                y: -10 - Math.random() * 200,
+                w: 5 + Math.random() * 8,
+                h: 3 + Math.random() * 5,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                rot: Math.random() * Math.PI * 2,
+                rotSpeed: (Math.random() - 0.5) * 0.15,
+                vx: (Math.random() - 0.5) * 3,
+                vy: 2.5 + Math.random() * 3.5,
+                alpha: 1,
+            }));
+            let frame = 0;
+            (function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                pieces.forEach(p => {
+                    p.x += p.vx; p.y += p.vy; p.rot += p.rotSpeed;
+                    if (p.y > canvas.height * 0.75) p.alpha -= 0.018;
+                    ctx.save();
+                    ctx.globalAlpha = Math.max(0, p.alpha);
+                    ctx.translate(p.x, p.y); ctx.rotate(p.rot);
+                    ctx.fillStyle = p.color;
+                    ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+                    ctx.restore();
                 });
-            }, 350);
+                frame++;
+                if (frame < 220 && pieces.some(p => p.alpha > 0)) requestAnimationFrame(draw);
+                else ctx.clearRect(0, 0, canvas.width, canvas.height);
+            })();
         }
 
         /* ── TRANSITIONS ── */
@@ -1286,9 +1615,9 @@
         const scenes = document.querySelectorAll('.scene');
         const dotsEl = document.querySelectorAll('.dot');
         const gridbg = document.getElementById('gridbg');
-        const replayBtn = document.getElementById('replay');
-        // Duraciones por escena (ms): s1, s2, s3-alianza, s4-flujo, s5-servicios, s6-números, s7-logo
-        const DURATIONS = [6500, 7200, 8000, 8500, 9000, 8000, 0];
+        const replayBtn = null; // removed
+        // Duraciones por escena (ms): s1, s2, s3-alianza, s4-flujo, s5-servicios, s6-números, s7-clientes, s8-logo
+        const DURATIONS = [6500, 7200, 8000, 8500, 9000, 8000, 10000, 0];
         let cur = 0, tmr = null;
 
         function applyScene(idx) {
@@ -1305,11 +1634,22 @@
             });
             s.classList.add('active');
             dotsEl[idx].classList.add('on');
+            if (idx === 0) typeS1();
             if (idx === 1) buildPanels();
             if (idx === 3) buildFlow();
-            gridbg.style.opacity = (idx >= 1 && idx < 6) ? '1' : '0';
-            if (idx === 6) setTimeout(() => replayBtn.classList.add('show'), 2000);
-            else replayBtn.classList.remove('show');
+            if (idx === 6) buildClients();
+            gridbg.style.opacity = (idx >= 1 && idx < 7) ? '1' : '0';
+            if (idx === 7) {
+                ['s7r1', 's7r2', 's7r3'].forEach(id => {
+                    const el = document.getElementById(id);
+                    el.classList.remove('fire');
+                    void el.offsetWidth;
+                });
+                setTimeout(() => document.getElementById('s7r1').classList.add('fire'), 80);
+                setTimeout(() => document.getElementById('s7r2').classList.add('fire'), 230);
+                setTimeout(() => document.getElementById('s7r3').classList.add('fire'), 380);
+                setTimeout(launchS7Confetti, 150);
+            }
         }
 
         function showScene(idx, animate = true) {
@@ -1336,11 +1676,17 @@
                 if (DURATIONS[i]) tmr = setTimeout(advance, DURATIONS[i] + 1200);
             });
         });
-        replayBtn.addEventListener('click', start);
+        replayBtn; // replay button removed
         document.addEventListener('keydown', e => {
-            if (e.key === 'ArrowRight' || e.key === ' ') {
+            if (e.key === 'ArrowRight') {
                 clearTimeout(tmr);
                 if (cur < scenes.length - 1) { const n = cur + 1; showScene(n); if (DURATIONS[n]) tmr = setTimeout(advance, DURATIONS[n] + 1200); }
+            }
+            if (e.key === ' ') {
+                e.preventDefault();
+                clearTimeout(tmr);
+                if (cur < scenes.length - 1) { const n = cur + 1; showScene(n); if (DURATIONS[n]) tmr = setTimeout(advance, DURATIONS[n] + 1200); }
+                else { start(); }
             }
             if (e.key === 'ArrowLeft') {
                 clearTimeout(tmr);
