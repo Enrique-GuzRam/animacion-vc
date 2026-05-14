@@ -679,7 +679,7 @@
         }
 
         .srv-name {
-            font-size: 13px;
+            font-size: 17px;
             font-weight: 700;
             letter-spacing: 0.22em;
             text-transform: uppercase;
@@ -688,7 +688,7 @@
         }
 
         .srv-desc {
-            font-size: 15px;
+            font-size: 19px;
             font-weight: 300;
             line-height: 1.75;
             color: var(--ink-soft);
@@ -711,87 +711,126 @@
             text-align: center;
         }
 
-        /* ══ S6 — NÚMEROS ══ */
+        /* ══ S6 — FRASES + STATS ══ */
         #s6 {
             flex-direction: column;
             background: var(--bg);
         }
 
-        .mega-num {
-            font-size: clamp(5rem, 12vw, 10rem);
+        /* Phase 1 — Phrases */
+        #s6-phrases {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.8rem;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .s6-phrase {
+            font-size: clamp(2rem, 5vw, 3.4rem);
             font-weight: 700;
             color: var(--ink);
-            letter-spacing: -0.04em;
-            line-height: 1;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
             opacity: 0;
-            position: relative;
-            animation: numBlast 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            transform: translateY(60px);
+            animation: s6PhraseIn 0.85s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
         }
 
-        .mega-num .acc {
-            position: absolute;
-            left: 0;
-            bottom: -6px;
-            height: 5px;
-            background: var(--yellow);
-            width: 0%;
-            border-radius: 3px;
-            animation: barW 1s ease 0.6s forwards;
+        .s6-phrase-2 {
+            animation-delay: 0.55s;
         }
 
-        @keyframes numBlast {
-            from {
-                opacity: 0;
-                transform: scale(0.6) translateY(40px)
-            }
+        .s6-yellow {
+            color: #ECD925;
+        }
 
+        @keyframes s6PhraseIn {
             to {
                 opacity: 1;
-                transform: scale(1) translateY(0)
+                transform: translateY(0);
             }
         }
 
-        @keyframes barW {
-            from {
-                width: 0%
-            }
+        /* Phase 2 — Stats */
+        #s6-stats {
+            display: flex;
+            gap: clamp(32px, 6vw, 80px);
+            align-items: flex-start;
+            justify-content: center;
+            padding: 0 2rem;
+            opacity: 0;
+        }
 
+        .s6-stat-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-width: 160px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .s6-stat-card.s6-card-visible {
+            animation: s6CardIn 0.75s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
+        }
+
+        @keyframes s6CardIn {
             to {
-                width: 100%
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        .mega-num.d2 {
-            animation-delay: 2.4s;
+        .s6-icon-wrap {
+            width: 80px;
+            height: 80px;
+            background: #f0f0f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
         }
 
-        .mega-num.d2 .acc {
-            animation-delay: 3s;
+        .s6-icon-wrap img {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
         }
 
-        .mega-sub {
-            font-size: clamp(0.75rem, 1.8vw, 1rem);
-            font-weight: 400;
-            letter-spacing: 0.28em;
+        .s6-stat-num {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            color: var(--ink);
+            letter-spacing: -0.03em;
+            line-height: 1;
+        }
+
+        .s6-stat-lbl {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.22em;
             text-transform: uppercase;
-            color: var(--ink-soft);
-            margin-top: 10px;
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards;
+            color: var(--ink);
+            margin-top: 8px;
         }
 
-        .mega-sub.d2 {
-            animation-delay: 2.8s;
-        }
-
-        .v-sep {
-            width: 2px;
-            height: 70px;
-            background: linear-gradient(to bottom, var(--yellow), rgba(236, 217, 37, 0.1));
-            margin: 28px auto;
+        .s6-stat-acc {
+            width: 40px;
+            height: 3px;
+            background: var(--yellow);
             border-radius: 2px;
-            opacity: 0;
-            animation: fadeUp 0.5s ease 1.8s forwards;
+            margin: 8px auto 10px;
+        }
+
+        .s6-stat-desc {
+            font-size: clamp(0.8rem, 1.4vw, 0.95rem);
+            font-weight: 400;
+            color: var(--ink-soft);
+            line-height: 1.5;
         }
 
         /* ══ S7 — LOGO ══ */
@@ -1179,12 +1218,9 @@
             </div>
         </div>
 
-        <!-- S2 — PANELES DE MÉTRICAS -->
+        <!-- S2 — PRESENTACIÓN -->
         <div class="scene" id="s2">
-            <div class="panel-grid" id="panelGrid"></div>
-            <div class="s2-foot">
-                <p class="hl d1">Cumplir no debería ser complicado.</p>
-            </div>
+            <p style="font-size:clamp(2rem,5vw,4rem);font-weight:700;text-align:center;">Aqui presentamos la empresa</p>
         </div>
 
         <!-- S3 — ALIANZA GOMSA -->
@@ -1215,20 +1251,7 @@
                     </div>
                 </div>
 
-                <div class="alliance-stats">
-                    <div class="a-stat">
-                        <div class="a-stat-val">+200K</div>
-                        <div class="a-stat-lbl">evaluaciones / año</div>
-                    </div>
-                    <div class="a-stat">
-                        <div class="a-stat-val">100%</div>
-                        <div class="a-stat-lbl">cobertura NOMs</div>
-                    </div>
-                    <div class="a-stat">
-                        <div class="a-stat-val">100+</div>
-                        <div class="a-stat-lbl">clientes activos</div>
-                    </div>
-                </div>
+
 
                 <div class="alliance-foot">
                     <p>Dos líderes de mercado construyendo el <strong>estándar de cumplimiento normativo</strong> en
@@ -1241,7 +1264,7 @@
         <div class="scene" id="s4">
             <div class="exp-wrap">
                 <div class="exp-bar"></div>
-                <h2 class="exp-title"><em>21 años de experiencia</em></h2>
+                <h2 class="exp-title"><em><span style="color:#ecd925;">+</span> De 20 años de experiencia</em></h2>
                 <p class="exp-sub">
                     Somos un socio de negocios confiable y comprometido: <strong>PROFESIONAL</strong>.<br>
                     Nos enfocamos en entregar resultados siendo <strong>Flexibles e Innovadores</strong>.
@@ -1278,7 +1301,7 @@
 
         <!-- S5 — SERVICIOS: SOPORTE · CONSULTORÍA · DISEÑO -->
         <div class="scene" id="s5">
-            <p class="ui-label">Unidad de Inspección — Soluciones Regulatorias</p>
+            <p class="ui-label" style="color:#ECD925;font-weight:700">Asistimos a su organización con:</p>
 
             <div class="servicios-grid">
                 <!-- SOPORTE -->
@@ -1288,9 +1311,8 @@
                         <rect x="3" y="3" width="26" height="26" rx="3" stroke="var(--yellow)" stroke-width="1.5" />
                         <path d="M10 16h12M16 10v12" stroke="var(--ink)" stroke-width="2" stroke-linecap="round" />
                     </svg>
-                    <div class="srv-name">Soporte</div>
-                    <div class="srv-desc">Acompañamiento continuo ante cualquier requerimiento normativo. Respuesta
-                        experta, sin tiempos muertos.</div>
+                    <div class="srv-name">Soporte y acompañamiento</div>
+                    <div class="srv-desc">Asesoría experta en cada etapa.</div>
                 </div>
 
                 <!-- CONSULTORÍA -->
@@ -1303,9 +1325,8 @@
                             fill="var(--ink)" stroke="none" />
                         <circle cx="16" cy="24" r="1.5" fill="var(--yellow)" />
                     </svg>
-                    <div class="srv-name">Consultoría</div>
-                    <div class="srv-desc">Análisis estratégico de tu situación regulatoria. Identificamos brechas y
-                        trazamos el camino al cumplimiento.</div>
+                    <div class="srv-name">Soluciones simplificadas</div>
+                    <div class="srv-desc">Soluciones ágiles e inteligentes.</div>
                 </div>
 
                 <!-- DISEÑO -->
@@ -1316,29 +1337,46 @@
                             stroke-linejoin="round" />
                         <path d="M22 10l-2 2" stroke="var(--ink)" stroke-width="2" stroke-linecap="round" />
                     </svg>
-                    <div class="srv-name">Diseño</div>
-                    <div class="srv-desc">Estructuramos sistemas y procedimientos que integran el cumplimiento normativo
-                        desde el origen del proceso.</div>
+                    <div class="srv-name">Certeza</div>
+                    <div class="srv-desc">Confianza respaldada por experiencia.</div>
                 </div>
             </div>
 
             <div class="s5-foot">
-                <p class="hl sm" style="white-space:normal;text-align:center;max-width:780px;animation-delay:1.5s">
-                    Damos soluciones en <strong style="color:var(--ink);font-weight:600">materia regulatoria</strong>
-                    con experiencia real en campo.
-                </p>
             </div>
         </div>
 
         <!-- S6 — NÚMEROS GRANDES -->
         <div class="scene" id="s6">
-            <div class="mega-num">+200K<div class="acc"></div>
+            <!-- Phase 1: Phrases -->
+            <div id="s6-phrases">
+                <p class="s6-phrase">Experiencia que genera <span class="s6-yellow">confianza</span>.</p>
+                <p class="s6-phrase s6-phrase-2"><span class="s6-yellow">Resultados</span> que nos respaldan.</p>
             </div>
-            <div class="mega-sub">evaluaciones al año</div>
-            <div class="v-sep"></div>
-            <div class="mega-num d2">+20 años<div class="acc"></div>
+            <!-- Phase 2: Stats -->
+            <div id="s6-stats">
+                <div class="s6-stat-card">
+                    <div class="s6-icon-wrap"><img src="static/trofeo.png" alt="Trofeo"></div>
+                    <div class="s6-stat-num">5</div>
+                    <div class="s6-stat-lbl">AÑOS</div>
+                    <div class="s6-stat-acc"></div>
+                    <div class="s6-stat-desc">Liderando el sector.</div>
+                </div>
+                <div class="s6-stat-card">
+                    <div class="s6-icon-wrap"><img src="static/medalla-de-oro.png" alt="Medalla"></div>
+                    <div class="s6-stat-num">#1</div>
+                    <div class="s6-stat-lbl">EN INSPECCIÓN</div>
+                    <div class="s6-stat-acc"></div>
+                    <div class="s6-stat-desc">Por volumen de operación.</div>
+                </div>
+                <div class="s6-stat-card">
+                    <div class="s6-icon-wrap"><img src="static/escudo.png" alt="Escudo"></div>
+                    <div class="s6-stat-num">99%</div>
+                    <div class="s6-stat-lbl">DE CONFIABILIDAD</div>
+                    <div class="s6-stat-acc"></div>
+                    <div class="s6-stat-desc">Procesos exitosos<br>(2021 – 2025)</div>
+                </div>
             </div>
-            <div class="mega-sub d2">experiencia en regulación</div>
         </div>
 
         <!-- S8 — CLIENTES -->
@@ -1361,7 +1399,7 @@
                 <img src="static/LOGO VYC RGB.svg" alt="V&amp;C"
                     style="display:block;max-height:160px;width:auto;object-fit:contain;transform:scale(1.875);transform-origin:center top;margin-bottom:70px;">
                 <div class="logo-rule"></div>
-                <div class="logo-slogan">Unidad de Inspección · Expertos en <strong>NOM's</strong></div>
+                <div class="logo-slogan"><strong>vyc.com.mx</strong></div>
             </div>
         </div>
 
@@ -1495,6 +1533,7 @@
             { file: 'logo_16.png', featured: false, blur: 3 },
             { file: 'logo_17.jpg', featured: false, blur: 1 },
             { file: 'logo_18.png', featured: false, blur: 2 },
+            { file: '19.webp', featured: false, blur: 1, scale: 1.5 },
         ];
 
         // Pre-computed burst positions (polar → cartesian) spread around center
@@ -1506,7 +1545,7 @@
         // Two rings: inner (featured) and outer (non-featured)
         const ringRadii = [
             0.30, 0.34, 0.30, 0.34, 0.30, 0.34, 0.30, 0.34, 0.30, 0.34, // featured
-            0.44, 0.46, 0.44, 0.46, 0.44, 0.46, 0.44, 0.46               // non-featured
+            0.44, 0.46, 0.44, 0.46, 0.44, 0.46, 0.44, 0.46, 0.45         // non-featured
         ];
 
         function buildClients() {
@@ -1523,7 +1562,7 @@
             // Inner ring: 10 featured, evenly at 36° steps
             const innerAngles = Array.from({ length: 10 }, (_, i) => (i * 36 - 90) * Math.PI / 180);
             // Outer ring: 8 non-featured, offset by 22° so they sit between inner logos
-            const outerAngles = Array.from({ length: 8 }, (_, i) => (i * 45 + 22 - 90) * Math.PI / 180);
+            const outerAngles = Array.from({ length: 9 }, (_, i) => (i * 40 + 22 - 90) * Math.PI / 180);
 
             clientLogos.forEach((logo, i) => {
                 let x, y;
@@ -1544,6 +1583,7 @@
                 const img = document.createElement('img');
                 img.src = `static/${logo.file}`;
                 img.alt = logo.file.replace(/\.[^.]+$/, '');
+                if (logo.scale) img.style.transform = `scale(${logo.scale})`;
                 el.appendChild(img);
                 burst.appendChild(el);
 
@@ -1572,8 +1612,8 @@
         const dotsEl = document.querySelectorAll('.dot');
         const gridbg = document.getElementById('gridbg');
         const replayBtn = null; // removed
-        // Duraciones por escena (ms): s1, s2, s3-alianza, s4-flujo, s5-servicios, s6-números, s7-clientes, s8-logo
-        const DURATIONS = [6500, 7200, 8000, 8500, 9000, 8000, 10000, 0];
+        // Duraciones por escena (ms): s1, s2, s3-alianza, s4-flujo, s5-servicios, s6-frases+stats, s7-clientes, s8-logo
+        const DURATIONS = [6500, 7200, 8000, 8500, 9000, 10000, 10000, 0];
         let cur = 0, tmr = null;
 
         function applyScene(idx) {
@@ -1591,8 +1631,9 @@
             s.classList.add('active');
             dotsEl[idx].classList.add('on');
             if (idx === 0) typeS1();
-            if (idx === 1) buildPanels();
+            // if (idx === 1) buildPanels();
             if (idx === 3) buildFlow();
+            if (idx === 5) animateS6();
             if (idx === 6) buildClients();
             gridbg.style.opacity = (idx >= 1 && idx < 7) ? '1' : '0';
             if (idx === 7) {
@@ -1605,6 +1646,37 @@
                 setTimeout(() => document.getElementById('s7r2').classList.add('fire'), 230);
                 setTimeout(() => document.getElementById('s7r3').classList.add('fire'), 380);
             }
+        }
+
+        function animateS6() {
+            const phrases = document.getElementById('s6-phrases');
+            const stats = document.getElementById('s6-stats');
+            // Reset both phases
+            phrases.style.display = '';
+            phrases.style.opacity = '1';
+            phrases.style.transition = '';
+            stats.style.opacity = '0';
+            stats.style.transition = '';
+            document.querySelectorAll('.s6-stat-card').forEach(c => c.classList.remove('s6-card-visible'));
+            // Re-trigger phrase animations
+            document.querySelectorAll('.s6-phrase').forEach(p => {
+                p.style.animation = 'none';
+                void p.offsetWidth;
+                p.style.animation = '';
+            });
+            // Phase transition: fade out phrases, then show stats
+            setTimeout(() => {
+                phrases.style.transition = 'opacity 0.6s ease';
+                phrases.style.opacity = '0';
+                setTimeout(() => {
+                    phrases.style.display = 'none';
+                    stats.style.transition = 'opacity 0.4s ease';
+                    stats.style.opacity = '1';
+                    document.querySelectorAll('.s6-stat-card').forEach((c, i) => {
+                        setTimeout(() => c.classList.add('s6-card-visible'), i * 300);
+                    });
+                }, 650);
+            }, 3200);
         }
 
         function showScene(idx, animate = true) {
